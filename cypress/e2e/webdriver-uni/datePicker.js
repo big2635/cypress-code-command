@@ -22,7 +22,7 @@ describe("Test data picker via web", () => {
         // cy.log(date2.getDate())//get current day ex 22 + 5 = 27
 
         var date = new Date()
-        date.setDate(date.getDate() + 365) 
+        date.setDate(date.getDate() + 30) 
 
         var futureYear = date.getFullYear();
         var futureMonth = date.toLocaleDateString('default', {month: "long"})
@@ -32,13 +32,14 @@ describe("Test data picker via web", () => {
         cy.log("Future month to select: " + futureMonth);
         cy.log("Future day to select: " + futureDay);
 
+        // to find the exact year
         function selectMonthAndYear() {
             cy.get('.datepicker-dropdown').find('.datepicker-switch').first().then(currentDate => {
                 if(!currentDate.text().includes(futureYear)) {
                     cy.get('.next').first().click();
                     selectMonthAndYear();
                 }
-            }).then(() => {
+            }).then(() => { //to find the exact month
                 cy.get('.datepicker-dropdown').find('.datepicker-switch').first().then(currentDate => {
                     if(!currentDate.text().includes(futureMonth)) {
                         cy.get('.next').first().click();
@@ -48,6 +49,7 @@ describe("Test data picker via web", () => {
             })
         }
 
+        //to find the exact date.
         function selectFutureDay() {
             cy.get('[class="day"]').contains(futureDay).click();
         }

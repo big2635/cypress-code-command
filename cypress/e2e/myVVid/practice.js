@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-describe('The iframe test.', () => {
+describe('The iframe test', () => {
 
     it('The iFrame h1 should be visible', () => {
 

@@ -28,7 +28,7 @@ describe("Test mouse actions", () => {
         cy.get('#double-click').dblclick();
     });
 
-    it.only("Should be able to hold the left mouse click button on a given element", () => {  
+    it("Should be able to hold the left mouse click button on a given element", () => {  
         cy.visit('http://www.webdriveruniversity.com/')
         cy.get('#actions').scrollIntoView().invoke('removeAttr', 'target') .click({
             force: true

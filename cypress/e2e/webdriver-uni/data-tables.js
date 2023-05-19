@@ -10,8 +10,10 @@ describe("Handling data via web", () => {
     })
 
     it("Calculate and assert the total age of all users", () => {
+        //variables
         var userDetails = [];
         let numb = 0;
+
         cy.get('#thumbnail-1 td').each(($el, index, $list) => {
             userDetails[index] = $el.text();
         }).then(() => {
@@ -27,11 +29,11 @@ describe("Handling data via web", () => {
         })
     });
 
-    it.only("Calculate and assert the age of given user based on last name ", () => {
+    it("Calculate and assert the age of given user based on last name ", () => {
 
         cy.get('#thumbnail-1 tr td:nth-child(2)').each(($el, index, $list) => {
             
-            const text = $el.text()
+            const text = $el.text() //to select element in the given data
 
             if(text.includes("Woods")){
                 cy.get('#thumbnail-1 tr td:nth-child(2)').eq(index).next().then(function(age){

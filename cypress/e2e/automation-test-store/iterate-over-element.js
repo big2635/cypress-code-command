@@ -11,7 +11,6 @@ describe("Iterate over elements", () => {
 
     it("Log info of all hair care", () => {
        
-
         cy.get('.fixed_wrapper .prdocutname').each(($el, index, $list) =>{
             cy.log("Index: " + index + " : " +$el.text())
              
@@ -35,8 +34,6 @@ describe("Iterate over elements", () => {
 
     it("Add specific product to basket", () => {
        
-    
-
         cy.selectProduct("Seaweed Conditioner");
 
     });
