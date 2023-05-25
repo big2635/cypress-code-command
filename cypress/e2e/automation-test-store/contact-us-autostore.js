@@ -2,6 +2,7 @@
 /// <reference types="cypress-xpath" />
 
 import Contact_PO from "../../support/pageObjects/automation-test-store/Contact_PO"; //importing from support file
+
 describe('Own Testing Contact', () => {
     
     const contacts = new Contact_PO();

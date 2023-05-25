@@ -1,0 +1,12 @@
+{
+    "firstName": "Qa",
+    "lastName": "Test",
+    "email": "test@gmail.com",
+    "confirmEmail": "test@gmail.com",
+    "mobileNum": 9563049523,
+    "country": "phi",
+    "organization": "test",
+    "jobTitle": "QaTestet",
+    "password": "Temp1234!!",
+    "confirmPassword": "Temp1234!!"
+}
