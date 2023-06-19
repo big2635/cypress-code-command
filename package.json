@@ -8,17 +8,13 @@
     "triggerAllTests-headed": "npx cypress run --headed",
     "triggerAllTests-chrome": "npx cypress run --browser chrome",
     "triggerAllTests-dashboard": "npx cypress run --record --key 0dd0e01c-16ce-4cfa-9860-06d6bda1af7f",
-   
     "triggerAllTests-webdriveruni": "npx cypress run --spec cypress/e2e/webdriver-uni/*",
     "triggerAllTests-webdriveruni-dashboard": "npx cypress run --spec cypress/e2e/webdriver-uni/* --record --key 0dd0e01c-16ce-4cfa-9860-06d6bda1af7f --parallel --browser chrome --headed",
-   
     "triggerAllTests-autoTestStore": "npx cypress run --spec cypress/e2e/automation-test-store/*",
     "triggerAllTests-autoTestStore-dashboard": "npx cypress run --spec cypress/e2e/automation-test-store/* --record --key 0dd0e01c-16ce-4cfa-9860-06d6bda1af7f --parallel --browser chrome --headed",
-    
     "junit-merge": "npx junit-merge -d cypress/results/junit -o cypress/results/junit/results.xml",
     "delete-junit-report": "rm -rf cypress/results/junit/results.xml",
     "delete-results": "rm -rf cypress/results/*|| true",
-   
     "mohcawesome-merge": "npx mochawesome-merge cypress/results/mochawesome/*.json > mochawesome.json && npx marge mochawesome.json",
     "delete-mochawesome-report": "rm -rf mochawesome-report/* || true",
     "cypress-regression-pack": "npm run delete-results && npm run delete-mochawesome-report && npm run triggerAllTests-headless && npm run mohcawesome-merge",
@@ -29,6 +25,7 @@
   "license": "ISC",
   "devDependencies": {
     "cypress": "^12.8.0",
+    "cypress-cucumber-preprocessor": "^4.3.1",
     "cypress-iframe": "^1.0.1",
     "cypress-multi-reporters": "^1.6.2",
     "cypress-xpath": "^2.0.1",
@@ -37,6 +34,11 @@
     "mochawesome-merge": "^4.2.2",
     "mochawesome-report-generator": "^6.2.0"
   },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": false,
+    "stepDefinition": "cypress/support/step_definitions"
+  },
+ 
   "dependencies": {
     "aggregate-error": "^3.1.0",
     "ansi-colors": "^4.1.3",

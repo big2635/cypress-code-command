@@ -2,6 +2,8 @@ const {
   defineConfig
 } = require("cypress");
 
+const cucumber = require('cypress-cucumber-preprocessor').default
+
 // promisified fs module
 const fs = require('fs-extra');
 const path = require('path');
@@ -23,6 +25,8 @@ module.exports = defineConfig({
   //chromeWebSecurity: false,
   e2e: {
     setupNodeEvents(on, config) {
+
+      on('file:preprocessor', cucumber())
       // implement node event listeners here
       // accept a configFile value or use development by default
       const file = config.env.configFile || ''

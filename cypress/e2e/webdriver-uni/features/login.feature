@@ -1,8 +1,16 @@
-Feature: Web driver login page
+Feature: WebdriverUniversity Login page
 
 Scenario: Login using valid credentials
-    Given I access the webdriverUniversity Login Portal
+    Given I access the WebdriverUniversity Login Portal page
     When I enter a username webdriver
     And I enter a password webdriver123
-    And i click on the login button
+    And I click on the login button
     Then I should be presented with the following message validation succeeded
+
+Scenario: Login using invalid credentials
+    Given I access the WebdriverUniversity Login Portal page
+    When I enter a username webdriver
+    And I enter a password webdriver111
+    And I click on the login button
+    Then I should be presented with the following message validation failed
+

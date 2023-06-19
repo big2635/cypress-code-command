@@ -1,0 +1,17 @@
+<html>
+<body>
+   <div style="display: inline-block;">Input min number <input type="text" class="start"> Input max number <input type="text" class="end"></div> <br /><br />
+   <input type="button" value="Get Number" onclick="getRandomNumber();">
+   <p class="number"></p>
+   <script>
+      function getRandom(start,end){
+         return Math.floor(Math.random()*(end-start+1))+start;
+      }
+      function getRandomNumber(){
+         var start = document.getElementsByClassName('start')[0].value;
+         var end = document.getElementsByClassName('end')[0].value;
+         document.getElementsByClassName('number')[0].innerHTML = 'The Random Number is : <span class="highlight">'+getRandom(parseInt(start),parseInt(end))+'</span>';
+      }
+   </script>
+</body>
+</html>
